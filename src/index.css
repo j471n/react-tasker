@@ -64,11 +64,14 @@ html {
     color: var(--navbar-text-color);
     background-color: var(--primary-color);
     box-shadow: var(--navbar-shadow);
+    user-select: none;
 }
 .navbar h1 {
     margin-left: 10px;
     filter: drop-shadow(var(--drop-shadow));
     font-family: 'Open Sans', sans-serif;   
+    user-select: none;
+
 }
 
 .container {
@@ -99,6 +102,11 @@ button {
     text-align: center;
     cursor: pointer;
     user-select: none;
+    outline: none;
+}
+
+input {
+	cursor: text;
 }
 .add {
     border-radius: 50px;
