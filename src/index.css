@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+:root {
+    --button-size: 1.5rem;
+    --primary-color: rgb(50, 147, 233);
+    --background-color: #fff;
+    --navbar-text-color: #fff;
+    --navbar-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
+    --text-color: #000;
+    --inset-box-shadow: inset 0 0 3px rgb(0, 0, 0, 0.5);
+    --box-shadow: 0 0 3px rgb(0, 0, 0, 0.5);
+    --danger-button-color: rgb(231, 44, 44);
+    --success-button-color: rgb(53, 199, 34);
+    --footer-text: gray;
+    --drop-shadow: 0px 0px 2px black;
+}
+::-webkit-scrollbar {
+    width: 0 !important;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    /* transition:all 1s; */
+}
+
+.root {
+    transition: all 1s;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.dark {
+    --primary-color: rgb(50, 147, 233);
+    --background-color: #333;
+    --navbar-text-color: #fff;
+    --navbar-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
+    --text-color: #fff;
+    --inset-box-shadow: inset 0 0 3px rgb(0, 0, 0);
+    --box-shadow: inset 0 0 3px rgb(0, 0, 0);
+    --danger-button-color: rgb(231, 44, 44);
+    --success-button-color: rgb(53, 199, 34);
+    --footer-text: gray;
+}
+
+html {
+    overflow-x: hidden;
+}
+*,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    position: relative;
+    padding: 20px;
+    color: var(--navbar-text-color);
+    background-color: var(--primary-color);
+    box-shadow: var(--navbar-shadow);
+}
+.navbar h1 {
+    margin-left: 10px;
+    filter: drop-shadow(var(--drop-shadow));
+    font-family: 'Open Sans', sans-serif;   
+}
+
+.container {
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+input {
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    text-align: center;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    box-shadow: var(--inset-box-shadow);
+}
+
+button {
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+.add {
+    border-radius: 50px;
+    padding: 10px 20px !important;
+    margin-left: 10px;
+    box-shadow: var(--inset-box-shadow);
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 25px;
+}
+
+.task {
+    width: 100%;
+    /* background-color: yellow; */
+    padding: 20px;
+    width: 20%;
+    position: relative;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    word-wrap: break-word;
+    animation-name: addTask;
+    animation-duration: 1s;
+    animation-play-state: running;
+    transition: all 1s;
+}
+
+.hide {
+    animation-name: removeTask;
+    animation-duration: 1s;
+    animation-play-state: running;
+    transition: all 1s;
+}
+@keyframes addTask {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes removeTask {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.task__task {
+    width: 80%;
+}
+
+.icon {
+    position: absolute;
+    top: calc(50% - 12px);
+    font-size: 1.5rem;
+    right: 20px;
+}
+
+svg.deleteBtn {
+    background: transparent;
+    position: absolute;
+    border: none;
+    top: calc(50% - 0.75rem);
+    bottom: 0;
+    right: 20px;
+    outline: none;
+    color: var(--danger-button-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+
+
+.icon {
+    color: var(--navbar-text-color);
+    filter: drop-shadow(1px 1px 3px black);
+}
+
+footer {
+    padding: 10px;
+    width: 100vw;
+    text-align: center;
+    font-size: 0.7rem;
+    position: fixed;
+    bottom: 0;
+    color: var(--footer-text);
+}
+
+/* Notes */
+.notes {
+    margin: 2%;
+    width: 96%;
+    grid-gap: 2%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.btn {
+    background-color: var(--success-button-color);
+    padding: 0.5rem;
+    border: none;
+    color: var(--navbar-text-color);
+    text-decoration: none;
+    box-shadow: var(--inset-box-shadow);
+}
+
+.empty {
+    color: var(--footer-text);
+    opacity: 0.7;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+@media screen and (max-width: 1200px) {
+    .task {
+        width: 40%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .task {
+        width: 70%;
+    }
+    .task__task {
+        width: 85%;
+    }
+    .deleteBtn {
+        right: 10px;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --button-size: 1.5rem;
+        --primary-color: rgb(50, 147, 233);
+        --background-color: #fff;
+        --navbar-text-color: #fff;
+        --navbar-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
+        --text-color: #000;
+        --inset-box-shadow: inset 0 0 3px rgb(0, 0, 0, 0.5);
+        --box-shadow: 0 0 3px rgb(0, 0, 0, 0.5);
+        --danger-button-color: rgb(231, 44, 44);
+        --success-button-color: rgb(53, 199, 34);
+        --footer-text: gray;
+    }
+}
